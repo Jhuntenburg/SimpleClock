@@ -2,6 +2,7 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -36,7 +37,7 @@ public class SimpleClock extends JFrame {
             gMTButton.setBounds(50,150,100,30);
             set1224 = new JButton("12/24");
             set1224.setBounds(50,150,100,30);
-            timeFormat = new SimpleDateFormat("hh:mm:ss a");
+           timeFormat = new SimpleDateFormat("hh:mm:ss a");
             dayFormat=new SimpleDateFormat("EEEE");
             dateFormat=new SimpleDateFormat("MMMMM dd, yyyy");
             timeLabel = new JLabel();
@@ -55,8 +56,8 @@ public class SimpleClock extends JFrame {
 
 
         set1224.addActionListener(new ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if (timeFormat.equals("hh:mm:ss a")) {
+            public void actionPerformed(ActionEvent evt) {
+                if (timeFormat.toPattern().equals("hh:mm:ss a")) {
                     timeFormat = new SimpleDateFormat("HH:mm:ss");
                 } else {
                     timeFormat = new SimpleDateFormat("hh:mm:ss a");
